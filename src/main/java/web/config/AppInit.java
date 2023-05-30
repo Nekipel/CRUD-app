@@ -41,6 +41,7 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
         super.onStartup(aServletContext);
         registerHiddenFieldFilter(aServletContext);
     }
+
     private void registerHiddenFieldFilter(ServletContext aContext) {
         aContext.addFilter("hiddenHttpMethodFilter",
                         new HiddenHttpMethodFilter())

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import web.model.User;
 import web.service.UserService;
 
@@ -54,7 +55,7 @@ public class UserController {
     @PatchMapping("/{id}")
     public String update(@ModelAttribute("user") User user, @PathVariable("id") long id) {
         userService.updateUser(user,id);
-        return "redirect:users/allUsers";
+        return "redirect:/users/allUsers";
     }
     // Удаление пользователя
     @DeleteMapping("/{id}")
