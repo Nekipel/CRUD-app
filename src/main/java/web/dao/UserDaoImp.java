@@ -1,8 +1,8 @@
 package web.dao;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import web.model.User;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
@@ -11,6 +11,11 @@ import java.util.List;
 public class UserDaoImp implements UserDao{
     @PersistenceContext
     private EntityManager entityManager;
+
+    @Autowired
+    public UserDaoImp(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
 
     @Override
     public List<User> getAllUsers() {
@@ -24,8 +29,7 @@ public class UserDaoImp implements UserDao{
 
     @Override
     public User readUser(long id) {
-        entityManager.find(User.class, id);
-        return null;
+        return entityManager.find(User.class, id);
     }
 
     @Override
