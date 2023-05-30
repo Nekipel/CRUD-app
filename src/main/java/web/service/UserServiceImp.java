@@ -18,7 +18,6 @@ public class UserServiceImp implements UserService{
     }
 
     @Override
-    @Transactional
     public List<User> getAllUsers() {
         return userDao.getAllUsers();
     }
@@ -30,7 +29,6 @@ public class UserServiceImp implements UserService{
     }
 
     @Override
-    @Transactional
     public User readUser(long id) {
         return userDao.readUser(id);
     }
@@ -40,7 +38,6 @@ public class UserServiceImp implements UserService{
     public void updateUser(User user, Long id) {
         userDao.updateUser(user,id);
     }
-
     @Override
     @Transactional
     public void deleteUser(long id) {
