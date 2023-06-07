@@ -7,16 +7,18 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 import javax.servlet.Filter;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-
+//WebApplicationInitializer для регистрации DispatcherServlet и использования конфигурации Spring на основе Java.
 public class AppInit extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     // Метод, указывающий на класс конфигурации
+    //getRootConfigClasses()-- для конфигурации "корневого" контекста приложения (не веб-инфраструктуры).
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return null;
     }
 
     // Добавление конфигурации, в которой инициализируем ViewResolver, для корректного отображения jsp.
+    //getServletConfigClasses()-- для DispatcherServlet конфигурации контекста приложения (инфраструктура Spring MVC).
     @Override
     protected Class<?>[] getServletConfigClasses() {
         return new Class<?>[]{

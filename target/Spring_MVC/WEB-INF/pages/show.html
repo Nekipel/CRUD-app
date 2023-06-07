@@ -23,6 +23,9 @@
       <a th:href="@{/users/{id}/edit(id=${user.getId()})}">
         <button style="font-size: 20px;">Edit</button>
       </a>
+      <a th:href="@{/users/allUsers}">
+        <button style="font-size: 20px;">List Users</button>
+      </a>
       <form th:method="DELETE" th:action="@{/users/{id}(id=${user.getId()})}">
         <input style="font-size: 20px;" type="submit" value="Delete">
       </form>
